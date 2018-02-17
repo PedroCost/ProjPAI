@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+    <head>
+
+        <title>Dyslexic</title>
+
+        <link rel="stylesheet" href="styles/app.css" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="jquery-1.8.3.min.js"><\/script>')</script>
+        <script src="scripts/app.js"></script>
+        <script src="scripts/jscolor.js"></script>
+    </head>
+    <body>
+        <div id="container">
+            <h1>Speed reader</h1>
+            <textarea id="text-to-read">Wikipedia: Speed reading is the name for a number of ways to increase the speed at which a text can be read, so that the important facts of the text can still be understood. There are different ways to improve reading speed, but they are all similar. A trained reader is able to read and understand between 200 and 300 words per minute, for a text that is not very difficult to understand. Better training can improve this speed to over 1000 words per minute. Using a lot of exercise, it is possible to increase reading speed further. The best readers can read between 3000 and 4000 words per minute, and understand about 80% of them.</textarea>
+            <div id="reading-screen">
+                <div id="word"></div>
+               
+            </div>
+            <input id="text-progress" type="range"/>
+
+            <div id="options">
+               
+                    <span id="wpm">Words per minute (WPM):</span>
+                    <input id="reading-speed" type="number" value="200" step="25" min="0" max="1000" />
+                    <span id="text-info"></span>
+
+                    </br>
+                
+                    <label for="merge" title="Words shorter than 4 characters are displayed together with the previous word">Merge short words:</label>
+                    <input id="merge" type="checkbox" checked="true" title="Words shorter than 4 characters are displayed together with the previous word"/>
+                
+                    </br>
+
+                    <label title="Background Color">Background Color:</label>
+                    <button class="jscolor {valueElement:'chosen-value', onFineChange:'setBackgroundColor(this)'}">
+                            Pick a color
+                    </button>
+                    HEX value: <input id="chosen-value" value="000000">
+
+                    </br>
+
+                    <label title="Text Color">Text Color:</label>
+                    <button class="jscolor {valueElement:'chosen-value', onFineChange:'setTextColor(this)'}">
+                            Pick a color
+                    </button>         
+                    HEX value: <input id="chosen-value" value="000000">
+
+                    </br>
+
+                    <label title="Font">Text Font:</label>
+                    <select id="font-family"  >
+                        <option value="Open Sans">Open Sans</option>
+                        <option value="opendyslexic">Open Dyslexic</option>
+                        <option value="Georgia">Georgia</option>
+                    </select>
+                
+            </div>
+            <button class="btn" id="start">Read!</button>
+            <button class="btn" id="new">New text</button>
+        </div>
+        
+    </body>
+
+    <script>
+            // Por alguma razão não funciona no ficheiro de js, ver mais tarde.
+            function setBackgroundColor(picker) {
+                document.getElementById('text-to-read').style.backgroundColor  = '#' + picker.toString()
+            }
+            function setTextColor(picker) {
+                document.getElementById('text-to-read').style.color  = '#' + picker.toString()
+            }
+            </script>
+
+</html>
